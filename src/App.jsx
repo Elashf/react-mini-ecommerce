@@ -3,7 +3,7 @@ import Home from "./pages/Home"
 import Header from './pages/Header'
 import Login from"./components/Login"
 import Cart from"./pages/Cart"
-import PrivateRoute from "./components/privateRoute"
+import PrivateRoute from "./components/PrivateRoute"
 import ProductDetails from "./components/ProductDetails"
 
 function App() {

@@ -18,6 +18,7 @@ function Home() {
   const {items , loading , error} =useSelector((state)=> state.products)
   const likeItems = useSelector((state)=> state.like.likedItems)
   
+console.log(items);
 
 
   useEffect(()=>{
@@ -32,13 +33,18 @@ setDebouncedSearch(search)
   },[search])
 
   /** 2 */
+
+const safeItems = Array.isArray(items) ? items : []
+
   const filteredProducts=
   debouncedSearch ?
-  items.filter((product)=>
+  safeItems.filter((product)=>
     product.title.toLowerCase().includes(debouncedSearch.toLowerCase())
   )
-  : items
+  : safeItems
 
+  
+  
 
   useEffect(()=>{
     setCurrentPage(1)
@@ -68,7 +74,7 @@ const indexOfLastProduct = currentPage * productPerPage
 
   const currentProducts =sortedProducts.slice(indexOfFirstProduct , indexOfLastProduct)
 
-  const totalPage = Math.ceil(items.length / productPerPage )
+  const totalPage = Math.ceil(safeItems.length / productPerPage )
 
 
 
