@@ -7,7 +7,7 @@ import Loading from "./Loading"
 
 function ProductDetails() {
 const [product , setProduct]=useState(null)
-const [loading , setLoading]=useState(null)
+const [loading , setLoading]=useState(false)
 const [error , setError]=useState(null)
 const {id} =useParams()
 
@@ -19,9 +19,8 @@ useEffect(()=>{
             const res =await fetch(`https://dummyjson.com/products/${id}`)
             if(!res.ok) throw new Error("failed to fetch")
                 const data=await res.json()
-            console.log(data);
             
-            setProduct(data)
+           setProduct(data)
         } catch (error) {
             setError(error.message)
         }finally{
@@ -40,7 +39,7 @@ useEffect(()=>{
           {loading && <Loading />}
           {error && <p className=" text-rose-500">{error}</p>}
         </div>
-        {product && (
+        {!loading && product && (
           <>
             <img className=" w-70 h-70" src={product.thumbnail} alt="img" />
             <h1 className="my-2 text-purple-800">{product.title}</h1>
