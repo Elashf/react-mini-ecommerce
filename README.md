@@ -1,7 +1,7 @@
 # React Mini Ecommerce
 
 A simple ecommerce project built with React.
-
+https://mini-store-by-react.netlify.app/
 ## Features
 
 - Product listing
