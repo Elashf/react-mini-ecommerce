@@ -15,7 +15,7 @@ https://mini-store-by-react.netlify.app/
 - React
 - React Router
 - Redux Toolkit
-- CSS Modules
+- Tailwind CSS 
 
 ## Installation
 
